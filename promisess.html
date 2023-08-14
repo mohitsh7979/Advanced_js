@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+
+    <table>
+        <tr>
+
+        </tr>
+    </table>
+    <script>
+      /*  let a = 1;
+
+        let prom = new Promise(function(resolve,reject){
+
+              if(a){
+                resolve("Successfully !!")
+              }
+              else{
+                reject("Rejected !!!")
+              }
+        });
+
+        console.log(prom) */
+
+      /*  function prom(complete){
+
+          return new Promise(function(resolve,reject){
+  
+                if(complete){
+                  resolve("Successfully !!")
+                }
+                else{
+                  reject("Rejected !!!")
+                }
+          });
+        }
+
+        let fullfill = (result)=>{
+            
+           console.log(result)
+        }
+
+        let rejection = (result)=>{
+           
+          console.log(result)
+        }
+        
+        prom(false).then(fullfill).catch(rejection) */
+
+      /*  function prom(complete) {
+        return new Promise(function (resolve, reject) {
+          console.log("Fetching data......");
+
+          setTimeout(() => {
+            if (complete) {
+              resolve("Successfully !!");
+            } else {
+              reject("Rejected !!!");
+            }
+          }, 3000);
+        });
+      }
+
+      let fullfill = (result) => {
+        console.log(result);
+      };
+
+      let rejection = (result) => {
+        console.log(result);
+      };
+
+      prom(true).then(fullfill).catch(rejection); */
+
+      
+
+      function prom(complete) {
+        return new Promise(function (resolve, reject) {
+          console.log("Fetching data......");
+
+          setTimeout(() => {
+            $.get("https://jsonplaceholder.typicode.com/users", (data) => {
+           
+               resolve(data)
+            }).fail(err =>{
+                
+                 reject("failed to load json")
+            });
+          }, 2000);
+        });
+      }
+
+      prom()
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((result) => {
+          console.log(result);
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </body>
+</html>
