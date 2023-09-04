@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        
+      /*  async function output(){
+
+            console.log("Hello 1")
+            await console.log("Hello 2")
+            console.log("Hello 3")
+        } */
+
+      /*  output().then((item)=>console.log(item)).catch((error)=>console.log(error)) */
+
+    
+
+     /*  output().then((item)=> console.log(item)).catch((error)=> console.log(error))  */
+        
+        
+       /* async function output(){
+
+            console.log("Mohit 1")
+            await console.log("Rohit 2")
+            console.log("Ankit 3")
+        }
+
+        console.log("Aman 4")
+        output()
+        console.log("Anu 5") */ 
+
+        async function output(){
+
+            console.log("Mohit 1")
+            const a =  await fetch('student_data.json')
+            const b = await a.json()
+            console.log(b)
+            console.log("Ankit 3")
+        }
+
+        console.log("Aman 4")
+        output()
+        console.log("Anu 5")  
+
+
+      /*  async function output(){
+
+           
+            const a = await fetch('student_data.json')
+            const b = await a.json()
+
+            return b
+       
+        }
+
+ 
+        output().then((item)=>console.log(item)).catch((error)=>console.log(error)) */
+      
+
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
