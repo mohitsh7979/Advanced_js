@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+
+             width: 100%;
+             height: 100%;
+        }
+
+        p{
+
+            display: inline;
+        }
+
+        .container{
+
+            display: inline-block;
+            width: 28vw;
+            height: 28vh;
+            padding: 2rem;
+           
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+
+
+    
+
+    /*  function prom(a){
+
+          return new Promise(function(resolve,reject){
+    
+            console.log('Fetching Data.......')
+    
+            setTimeout(function(){
+    
+                if(a){
+        
+                    resolve('Promise pura huaa')
+                }
+        
+                else{
+        
+                    reject('Promise adhura rh gya')
+                }
+            },2000)
+              
+    
+          });
+      }
+
+      let fullfillment = (result)=>{
+
+        console.log(result)
+
+      }
+
+      let notfullfillment = (result)=>{
+
+        console.log(result)
+
+      }
+
+      prom(false).then(fullfillment).catch(notfullfillment) */ 
+
+    fetch('https://api.slingacademy.com/v1/sample-data/photos').then((response)=>{
+       return response.json()
+    }).then(function(result){
+
+        console.log(result)
+
+        for(let i of result.photos){
+
+            let container = document.createElement('div');
+            container.setAttribute('class','container')
+            
+            let image = document.createElement('img');
+            image.src = i.url
+            image.setAttribute('class','mohit')
+            container.appendChild(image)
+
+            let title = document.createElement('h3');
+            title.innerHTML = i.title.slice(0,30)
+            container.appendChild(title)
+
+            let desc = document.createElement('p');
+            desc.innerHTML = i.description.slice(0,80)
+            container.appendChild(desc)
+
+            document.body.append(container)
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
